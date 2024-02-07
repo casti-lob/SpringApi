@@ -1,11 +1,15 @@
 package com.jacaranda.miPrimeraApi.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jacaranda.miPrimeraApi.model.State;
+import com.jacaranda.miPrimeraApi.model.StateDTO;
+import com.jacaranda.miPrimeraApi.model.Town;
+import com.jacaranda.miPrimeraApi.model.TownDTO;
 import com.jacaranda.miPrimeraApi.repository.StateRepository;
 
 @Service
@@ -20,8 +24,10 @@ public class StateService {
 	public State save(State state) {
 		return stateRepository.save(state);
 	}
-	public List<State> getAll(){
-		return this.stateRepository.findAll();
+	public List<StateDTO> getAll(){
+		List<State> states= this.stateRepository.findAll();
+		
+		return StateDTO.getStateDto(states);
 	}
 	public State update(State state) {
 		State result;

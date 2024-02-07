@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jacaranda.miPrimeraApi.exception.StateException;
 import com.jacaranda.miPrimeraApi.model.State;
+import com.jacaranda.miPrimeraApi.model.StateDTO;
 import com.jacaranda.miPrimeraApi.service.StateService;
 
 @RestController
@@ -21,7 +22,7 @@ public class StateController {
 	private StateService stateService;
 	
 	@GetMapping("/state")
-	public List<State> getAll(){
+	public List<StateDTO> getAll(){
 		return this.stateService.getAll();
 	}
 	@GetMapping("/state/{id}")

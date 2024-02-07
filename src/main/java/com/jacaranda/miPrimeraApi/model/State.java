@@ -1,10 +1,13 @@
 package com.jacaranda.miPrimeraApi.model;
 
+import java.util.List;
 import java.util.Objects;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +19,11 @@ public class State {
 	
 	@Column(name = "nombre")
 	private String name;
+	
+	@OneToMany(mappedBy = "codpro")
+	private List<Town> towns;
+	
+	
 
 	public String getCodState() {
 		return codState;
@@ -31,6 +39,16 @@ public class State {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	
+
+	public List<Town> getTowns() {
+		return towns;
+	}
+
+	public void setTowns(List<Town> towns) {
+		this.towns = towns;
 	}
 
 	@Override
