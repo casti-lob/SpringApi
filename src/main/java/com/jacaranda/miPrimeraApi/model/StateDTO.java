@@ -52,6 +52,8 @@ public class StateDTO {
 		return statesDto;
 	}
 	
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(codState);

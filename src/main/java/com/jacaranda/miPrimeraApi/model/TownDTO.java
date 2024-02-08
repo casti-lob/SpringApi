@@ -8,6 +8,12 @@ public class TownDTO {
 	private String idTown;
 	private String nameTown;
 	
+	
+	
+	public TownDTO() {
+		super();
+	}
+
 	public TownDTO(String idTown, String nameTown) {
 		super();
 		this.idTown = idTown;
@@ -36,6 +42,14 @@ public class TownDTO {
 			listTownDto.add(new TownDTO(town.getIdTown(), town.getName()));
 		}
 		return listTownDto;
+	}
+	
+	public static TownDTO get(Town town) {
+		TownDTO townDto = null;
+		if(town!=null) {
+			townDto = new TownDTO(town.getIdTown(), town.getName());
+		}
+		return townDto;
 	}
 
 	@Override
